@@ -26,8 +26,6 @@ public class AddBooks extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); // center form in screen 
         // set all error labels to invisible
-        lblErrorAuthorEmail.setVisible(false);
-        lblErrorAuthorId.setVisible(false);
         lblErrorAuthorName.setVisible(false);
         lblErrorBookId.setVisible(false);
         lblErrorLanguage.setVisible(false);
@@ -35,6 +33,7 @@ public class AddBooks extends javax.swing.JFrame {
         lblErrorPublishedDate.setVisible(false);
         lblErrorTitle.setVisible(false);
         //dbCon = new dbCon();
+        
     }
 
     /**
@@ -56,28 +55,24 @@ public class AddBooks extends javax.swing.JFrame {
         txtBookTitle = new javax.swing.JTextField();
         txtNumCpy = new javax.swing.JTextField();
         btnAddNewBook = new javax.swing.JButton();
-        txtAuthorId = new javax.swing.JFormattedTextField();
         lblErrorBookId = new javax.swing.JLabel();
         lblErrorNumCpy = new javax.swing.JLabel();
         lblErrorTitle = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        lblErrorAuthorEmail = new javax.swing.JLabel();
         cmbGenre = new javax.swing.JComboBox<>();
         txtLanguage = new javax.swing.JFormattedTextField();
-        txtAuthorEmail = new javax.swing.JFormattedTextField();
-        txtAuthorName = new javax.swing.JFormattedTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtPublishedDate = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
         lblErrorLanguage = new javax.swing.JLabel();
         lblErrorPublishedDate = new javax.swing.JLabel();
-        lblErrorAuthorId = new javax.swing.JLabel();
         lblErrorAuthorName = new javax.swing.JLabel();
+        btnAddNewAuthor = new javax.swing.JButton();
+        cmbAuthorName = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add New Employee");
+        setPreferredSize(new java.awt.Dimension(1000, 536));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -146,12 +141,7 @@ public class AddBooks extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAddNewBook);
-        btnAddNewBook.setBounds(450, 480, 127, 41);
-
-        txtAuthorId.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MMM-yyyy"))));
-        txtAuthorId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(txtAuthorId);
-        txtAuthorId.setBounds(420, 360, 200, 28);
+        btnAddNewBook.setBounds(450, 430, 127, 41);
 
         lblErrorBookId.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         lblErrorBookId.setForeground(new java.awt.Color(255, 0, 0));
@@ -171,17 +161,6 @@ public class AddBooks extends javax.swing.JFrame {
         getContentPane().add(lblErrorTitle);
         lblErrorTitle.setBounds(630, 150, 150, 22);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setText("Author Email:");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(290, 440, 130, 22);
-
-        lblErrorAuthorEmail.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
-        lblErrorAuthorEmail.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorAuthorEmail.setText("error label");
-        getContentPane().add(lblErrorAuthorEmail);
-        lblErrorAuthorEmail.setBounds(630, 440, 150, 22);
-
         cmbGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mystery", "Thriller", "Fiction", "Non-Fiction", "Romance" }));
         cmbGenre.setSelectedIndex(-1);
         cmbGenre.addActionListener(new java.awt.event.ActionListener() {
@@ -197,25 +176,10 @@ public class AddBooks extends javax.swing.JFrame {
         getContentPane().add(txtLanguage);
         txtLanguage.setBounds(420, 260, 200, 28);
 
-        txtAuthorEmail.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MMM-yyyy"))));
-        txtAuthorEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(txtAuthorEmail);
-        txtAuthorEmail.setBounds(420, 440, 200, 28);
-
-        txtAuthorName.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MMM-yyyy"))));
-        txtAuthorName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(txtAuthorName);
-        txtAuthorName.setBounds(420, 400, 200, 28);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setText("Author ID:");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(320, 360, 100, 22);
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Author Name:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(290, 400, 140, 22);
+        jLabel10.setBounds(280, 350, 140, 22);
 
         txtPublishedDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MMM-yyyy"))));
         txtPublishedDate.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -239,21 +203,33 @@ public class AddBooks extends javax.swing.JFrame {
         getContentPane().add(lblErrorPublishedDate);
         lblErrorPublishedDate.setBounds(630, 300, 150, 22);
 
-        lblErrorAuthorId.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
-        lblErrorAuthorId.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorAuthorId.setText("error label");
-        getContentPane().add(lblErrorAuthorId);
-        lblErrorAuthorId.setBounds(630, 360, 150, 22);
-
         lblErrorAuthorName.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         lblErrorAuthorName.setForeground(new java.awt.Color(255, 0, 0));
         lblErrorAuthorName.setText("error label");
         getContentPane().add(lblErrorAuthorName);
-        lblErrorAuthorName.setBounds(630, 400, 150, 22);
+        lblErrorAuthorName.setBounds(630, 350, 150, 22);
+
+        btnAddNewAuthor.setText("Add Author");
+        btnAddNewAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddNewAuthorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAddNewAuthor);
+        btnAddNewAuthor.setBounds(520, 380, 100, 23);
+
+        cmbAuthorName.setSelectedIndex(-1);
+        cmbAuthorName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAuthorNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbAuthorName);
+        cmbAuthorName.setBounds(420, 350, 200, 22);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jdbcgui/book.jpg"))); // NOI18N
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 0, 1210, 610);
+        jLabel7.setBounds(-60, -10, 1210, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -275,10 +251,7 @@ public class AddBooks extends javax.swing.JFrame {
     public boolean isIntPositive(String s) {
         try {
             int n = Integer.parseInt(s);
-            if (n > 0)
-                return true;
-            else
-                return false;
+            return n > 0;
         } catch (NumberFormatException ex) {
             return false;
         }
@@ -301,16 +274,27 @@ public class AddBooks extends javax.swing.JFrame {
         lblErrorTitle.setVisible(false);
         lblErrorNumCpy.setText("");
         lblErrorNumCpy.setVisible(false);
-        lblErrorAuthorEmail.setText("");
-        lblErrorAuthorEmail.setVisible(false);
-        lblErrorAuthorId.setVisible(false);
-        lblErrorAuthorId.setText("");
         lblErrorAuthorName.setVisible(false);
         lblErrorAuthorName.setText("");
         lblErrorLanguage.setVisible(false);
         lblErrorLanguage.setText("");
         lblErrorPublishedDate.setVisible(false);
-        lblErrorPublishedDate.setText("");        
+        lblErrorPublishedDate.setText("");
+        
+        try {// populate the authors combo box
+            dbCon = new myDBCon();
+            
+            rs = dbCon.executeStatement("SELECT AUTHOR_ID, AUTHOR_NAME FROM AUTHOR ORDER BY AUTHOR_ID ASC;");
+            rs.beforeFirst();
+            cmbAuthorName.removeAllItems();
+            // populate user type combo box
+            while (rs.next()) {
+                cmbAuthorName.addItem(rs.getString("AUTHOR_NAME"));
+            }
+            cmbAuthorName.setSelectedIndex(-1);     //maybe this is not needed
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
     // validate all user entry before sending new employee details to DB
@@ -322,7 +306,7 @@ public class AddBooks extends javax.swing.JFrame {
         {
             if (txtBookId.getText().trim().isEmpty()) {
                 lblErrorBookId.setText("Invalid. Cannot be empty.");
-            } else if (txtBookTitle.getText().trim().length() != 4) {
+            } else if (txtBookId.getText().trim().length() != 4) {
                 lblErrorBookId.setText("Invalid. Must be 4 digits long.");
             } else if (!isIntPositive(txtBookId.getText()))
                 lblErrorBookId.setText("Invalid. Must be 4 digit positive integers.");
@@ -349,18 +333,6 @@ public class AddBooks extends javax.swing.JFrame {
             lblErrorNumCpy.setVisible(true);
             result = false;
         }
-        
-        if (txtAuthorId.getText().trim().isEmpty() || (txtAuthorId.getText().trim().length() != 4) || !isIntPositive(txtAuthorId.getText().trim())) 
-        {
-            if (txtAuthorId.getText().trim().isEmpty()) {
-                lblErrorAuthorId.setText("Invalid. Cannot be empty.");
-            } else if (txtAuthorId.getText().trim().length() != 4) {
-                lblErrorAuthorId.setText("Invalid. Must be 4 digits long.");
-            } else if (!isIntPositive(txtAuthorId.getText()))
-                lblErrorAuthorId.setText("Invalid. Must be 4 digit positive integers.");
-            lblErrorAuthorId.setVisible(true);
-            result = false;
-        }
 
         if (txtLanguage.getText().trim().isEmpty() || txtLanguage.getText().trim().length() > 20){
             if (txtLanguage.getText().trim().isEmpty()) {
@@ -369,26 +341,6 @@ public class AddBooks extends javax.swing.JFrame {
                 lblErrorLanguage.setText("Invalid. Must be at most 20 characters long.");
             }
             lblErrorLanguage.setVisible(true);
-            result = false;
-        }
-
-        if (txtAuthorName.getText().trim().isEmpty() || txtAuthorName.getText().trim().length() > 25){
-            if (txtAuthorName.getText().trim().isEmpty()) {
-                lblErrorAuthorName.setText("Invalid. Cannot be empty.");
-            } else if (txtAuthorName.getText().trim().length() > 25) {
-                lblErrorAuthorName.setText("Invalid. Must be at most 25 characters long.");
-            }
-            lblErrorAuthorName.setVisible(true);
-            result = false;
-        }
-
-        if (txtAuthorEmail.getText().trim().isEmpty() || txtAuthorEmail.getText().trim().length() > 30){
-            if (txtAuthorEmail.getText().trim().isEmpty()) {
-                lblErrorAuthorEmail.setText("Invalid. Cannot be empty.");
-            } else if (txtAuthorEmail.getText().trim().length() > 30) {
-                lblErrorAuthorEmail.setText("Invalid. Must be at most 30 characters long.");
-            }
-            lblErrorAuthorEmail.setVisible(true);
             result = false;
         }
         
@@ -404,13 +356,11 @@ public class AddBooks extends javax.swing.JFrame {
     void clearInputBoxes() { // clear for every new entry 
         txtBookId.setText("");
         txtBookTitle.setText("");
-        cmbGenre.setSelectedIndex(0);
+        cmbGenre.setSelectedIndex(-1);
         txtNumCpy.setText("");
         txtLanguage.setText("");
         txtPublishedDate.setText("");
-        txtAuthorId.setText("");
-        txtAuthorName.setText("");
-        txtAuthorEmail.setText("");
+        cmbAuthorName.setSelectedIndex(-1);
     }
 
     private boolean isDuplicate(int bookId) throws SQLException {
@@ -421,6 +371,7 @@ public class AddBooks extends javax.swing.JFrame {
         isduplicate = rs.isBeforeFirst();
         return isduplicate;
     }
+    
     private void btnAddNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewBookActionPerformed
         // TODO add your handling code here:
 
@@ -429,31 +380,30 @@ public class AddBooks extends javax.swing.JFrame {
                 boolean AuthorExists = false;
                 int authorresult = 0;
                 // if new employee details are valid, then add new employee to DB
-                rs = dbCon.executeStatement("SELECT * FROM AUTHOR_ID, AUTHOR_NAME FROM AUTHOR");
-                rs.beforeFirst();
-                String AuthorId = txtAuthorId.getText().trim();
-                while (rs.next()) {
-                    if (rs.getString("AUTHOR_ID") == AuthorId) {
-                        AuthorExists = true;
-                        break;
-                    }
-                }
+                rs = dbCon.executeStatement("SELECT AUTHOR_ID, AUTHOR_NAME FROM AUTHOR WHERE AUTHOR_NAME = " + cmbAuthorName.getSelectedItem());
+                rs.first();
+                String AuthorId = rs.getString("AUTHOR_ID");
                 
                 String prepSQL = "INSERT INTO BOOK (BOOK_ID, BOOK_TITLE, GENRE, NO_OF_COPIES, LANGUAGE) VALUES ("
                         + txtBookId.getText().trim() + ", "
-                        + "'" + txtBookTitle.getText().toUpperCase() + "', "
+                        + "'" + txtBookTitle.getText().trim().toUpperCase() + "', "
                         + "'" + cmbGenre.getSelectedItem().toString().toUpperCase() + "', "
-                        + txtNumCpy.getText() + ", "
-                        + "'" + txtLanguage.getText().trim() + "')";
-                
+                        + txtNumCpy.getText().trim().toUpperCase() + ", "
+                        + "'" + txtLanguage.getText().trim().toUpperCase() + "')";
                 int bookresult = dbCon.executePrepared(prepSQL);
-                if (!AuthorExists) {
-                    prepSQL = "INSERT INTO AUTHOR (AUTHOR_ID, AUTHOR_NAME, EMAIL) VALUES ("
-                        + txtAuthorId.getText().trim() + ", "
-                        + "'" + txtAuthorName.getText().toUpperCase() + "', "
-                        + "'" + txtAuthorEmail.getText().trim() + "')";
-                    authorresult = dbCon.executePrepared(prepSQL);
-                }
+                
+                prepSQL = "INSERT INTO WRITTEN_BY (BOOK_ID, AUTHOR_ID, PUBLISHED_DATE) VALUES ('"
+                        + txtBookId.getText().trim() + ", "
+                        + "'" + AuthorId + ", "
+                        + "to_date('" + txtPublishedDate.getText().trim() + "', 'yyyy-mm-dd'))";
+                int written_byresult = dbCon.executePrepared(prepSQL);
+                
+                int book_copiesresult = 0;
+                for (int i = 1; i <= Integer.parseInt(txtNumCpy.getText().trim()); i++)
+                {
+                    prepSQL = "INSERT INTO BOOK_COPIES (COPY_ID, BOOK_ID) VALUES (" + String.valueOf(i) + ", " + txtBookId.getText().trim() +")";
+                    book_copiesresult += dbCon.executePrepared(prepSQL);
+                }  
                 
                 if (bookresult > 0) {
                     javax.swing.JLabel label;
@@ -500,9 +450,34 @@ public class AddBooks extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBookTitleActionPerformed
 
+    private void cmbAuthorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAuthorNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbAuthorNameActionPerformed
+
+    private void btnAddNewAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewAuthorActionPerformed
+        // TODO add your handling code here:
+        (new AddNewAuthor()).setVisible(true);
+        try {// populate the authors combo box
+            dbCon = new myDBCon();
+            
+            rs = dbCon.executeStatement("SELECT AUTHOR_ID, AUTHOR_NAME FROM AUTHOR ORDER BY AUTHOR_ID ASC;");
+            rs.beforeFirst();
+            cmbAuthorName.removeAllItems();
+            // populate user type combo box
+            while (rs.next()) {
+                cmbAuthorName.addItem(rs.getString("AUTHOR_NAME"));
+            }
+            cmbAuthorName.setSelectedIndex(-1); //maybe this is not needed
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btnAddNewAuthorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddNewAuthor;
     private javax.swing.JButton btnAddNewBook;
+    private javax.swing.JComboBox<String> cmbAuthorName;
     private javax.swing.JComboBox<String> cmbGenre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -513,19 +488,12 @@ public class AddBooks extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lblErrorAuthorEmail;
-    private javax.swing.JLabel lblErrorAuthorId;
     private javax.swing.JLabel lblErrorAuthorName;
     private javax.swing.JLabel lblErrorBookId;
     private javax.swing.JLabel lblErrorLanguage;
     private javax.swing.JLabel lblErrorNumCpy;
     private javax.swing.JLabel lblErrorPublishedDate;
     private javax.swing.JLabel lblErrorTitle;
-    private javax.swing.JFormattedTextField txtAuthorEmail;
-    private javax.swing.JFormattedTextField txtAuthorId;
-    private javax.swing.JFormattedTextField txtAuthorName;
     private javax.swing.JTextField txtBookId;
     private javax.swing.JTextField txtBookTitle;
     private javax.swing.JFormattedTextField txtLanguage;

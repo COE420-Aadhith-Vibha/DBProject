@@ -71,6 +71,7 @@ public class LoginForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login to JDBC GUI");
         setBounds(new java.awt.Rectangle(600, 500, 0, 0));
+        setPreferredSize(new java.awt.Dimension(1000, 536));
         setResizable(false);
         getContentPane().setLayout(null);
 
